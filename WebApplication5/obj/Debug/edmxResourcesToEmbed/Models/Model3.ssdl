@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="projectModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'project.dbo.images' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="images">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="src" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="src" Type="image" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'project.dbo.user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="username" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="projectModel1StoreContainer">
+    <EntitySet Name="images" EntityType="Self.images" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [images].[id] AS [id], 
+    [images].[src] AS [src]
+    FROM [dbo].[images] AS [images]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="user" EntityType="Self.user" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [user].[id] AS [id], 
+    [user].[username] AS [username], 
+    [user].[password] AS [password], 
+    [user].[email] AS [email]
+    FROM [dbo].[user] AS [user]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
